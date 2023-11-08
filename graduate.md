@@ -54,9 +54,8 @@ The final result will look like this:</p>
   </div>
 
   <div class="image">
-    <img src="images/robotsolidworks.png" alt="Robotimage"> 
+    <img src="images/robotsolidworks.jpg" alt="Robotimage"> 
   </div>
-
 </div>
 
 <div class="container">
