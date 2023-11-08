@@ -84,6 +84,3 @@ Here is a gif of the hand segmentation on a live webcam feed:
   </div>
 
 
-<div style="text-align: justify"> '</div>
-<div style="text-align: justify"> '</div>
-
