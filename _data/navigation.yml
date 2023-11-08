@@ -1,22 +1,9 @@
 # main links links
 main:
-  - title: "Publications"
-    url: /publications/
 
-  - title: "Talks"
-    url: /talks/    
+  - title: "MSc Project"
+    url: /masters/    
 
-  - title: "Teaching"
-    url: /teaching/    
+  - title: "BSc Project"
+    url: /ugrad/    
     
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
-    
-  - title: "CV"
-    url: /cv/
-    
-  - title: "Guide"
-    url: /markdown/
