@@ -70,7 +70,7 @@ This is a simulation of how the first joint's gearbox works:</p>
   </div>
 </div>
 
-<div style="text-align: justify">So far, I have built and tested the first 2 joints. The backlash on the first joint is just 2 arcmin (0.0344°), which meets the requirements for this project.to prevent the plastic parts from deforming, I am using thermistors to monitor the motor temperatures. I am using Hall effect sensors for homing the arm. I have also designed a parallel gripper with soft silicone pads in a grid pattern to gently grasp a variety of objects.</div>
+<div style="text-align: justify">So far, I have built and tested the first 2 joints. The backlash on the first joint is just 2 arcmin (0.0344°), which meets the requirements for this project. To prevent the plastic parts from deforming, I am using thermistors to monitor the motor temperatures. I am using Hall effect sensors for homing the arm. I have also designed a parallel gripper with soft silicone pads in a grid pattern to gently grasp a variety of objects.</div>
 <div style="text-align: justify"> '</div>
 <div style="text-align: justify">On the software side, I trained a YOLOv8 model on the Egohands dataset to segment human hands. The model provides reliable hand detection for the robot so the gripper can avoid grasping the human fingers holding the object.</div>
 
