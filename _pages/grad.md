@@ -4,7 +4,7 @@ title: "Master's Project"
 excerpt: "Master's Project"
 author_profile: true
 redirect_from: 
-  - /masters
+  - /grad
 ---
 
 
