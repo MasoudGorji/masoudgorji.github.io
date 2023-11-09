@@ -69,7 +69,7 @@ redirect_from:
 <div class="container">
 
   <div class="text">
-    <p>The gripper was a 2-jaw parallel mechanism integrated with force sensing resistors to measure contact forces during grasping.</p> 
+    <p>The gripper was a 2-jaw parallel mechanism integrated with force sensitive resistors to measure contact forces during grasping.</p> 
   </div>
 
   <div class="image">
@@ -96,7 +96,7 @@ redirect_from:
 <div class="container">
 
   <div class="text">
-    <p>For teleoperation, a Kinect sensor (V2) tracked the user's hand position which was mapped to control the 4-DOF robotic arm. The exoskeleton allowed the user to control the grippers movement and feel the forces applied by the gripper to the object it was grasping.</p> 
+    <p>For teleoperation, a Kinect sensor (V2) tracked the user's hand position which was mapped to control the 4-DOF robotic arm. The exoskeleton allowed the user to control the gripper's movement and feel the forces applied by the gripper to the object it was grasping.</p> 
   </div>
 
   <div class="image">
