@@ -71,15 +71,36 @@ This is a simulation of how the first joint's gearbox works:</p>
 </div>
 
 <div style="text-align: justify">So far, I have built and tested the first 2 joints. The backlash on the first joint is just 2 arcmin (0.0344°), which meets the requirements for this project. To prevent the plastic parts from deforming, I am using thermistors to monitor the motor temperatures. I am using Hall effect sensors for homing the arm. I have also designed a parallel gripper with soft silicone pads in a grid pattern to gently grasp a variety of objects.</div>
-<div style="text-align: justify"> '</div>
+<div style="text-align: justify">  <p> </p>  </div>
 <div style="text-align: justify">On the software side, I trained a YOLOv8 model on the Egohands dataset to segment human hands. The model provides reliable hand detection for the robot so the gripper can avoid grasping the human fingers holding the object.</div>
 
-<div style="text-align: justify">Overall, I have made significant progress in designing and prototyping a custom robot for my human-robot interaction research. Once completed, this platform will enable me to conduct novel experiments for my master's thesis. </div>
 
 
-Here is a gif of the hand segmentation on a live webcam feed:
+
+<div class="container">
+
+  <div class="text">
+    <p>On the software side, I trained a YOLOv8 model on the Egohands dataset to segment human hands. The model provides reliable hand detection for the robot so the gripper can avoid grasping the human fingers holding the object. Here is a gif of the hand segmentation on a live webcam feed:</p> 
+  </div>
+
   <div class="image">
     <img src="images/Segmentationgif.gif" alt="handseggif"> 
   </div>
+</div>
+<div class="container">
+
+  <div class="text">
+    <p>I also Implemented a robotic grasp detection system to find the optimal grasps for objects. I modified the framework to use Kinect camera input instead of RealSense, requiring changes to data preprocessing and coordinate calculations. Here is a gif that shows how it's currently working:</p> 
+  </div>
+
+  <div class="image">
+    <img src="images/Graspestimation.gif" alt="Graspestimation"> 
+  </div>
+</div>
+
+
+
+<div style="text-align: justify">Overall, I have made significant progress in designing and prototyping a custom robot for my human-robot interaction research. Once completed, this platform will enable me to conduct novel experiments for my master's thesis. </div>
+
 
 
