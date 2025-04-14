@@ -83,12 +83,12 @@ p {
 .btn-outline {
   background-color: transparent;
   border: 2px solid var(--primary);
-  color: var(--primary);
+  color: var(--primary)!important;
 }
 
 .btn-outline:hover {
   background-color: var(--primary);
-  color: white;
+  color: white !important;
 }
 
 /* Hero Section */
