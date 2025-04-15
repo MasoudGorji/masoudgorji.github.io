@@ -450,7 +450,7 @@ redirect_from:
             position: relative;
             transition: var(--transition);
             /* Make sure header doesn't steal clicks from the card */
-            pointer-events: none;
+            pointer-events: none; /* Let clicks pass through to the card */
         }
 
         .skill-header h3 {
@@ -469,6 +469,8 @@ redirect_from:
             transform: translateY(-50%);
             font-size: 1.2rem;
             transition: var(--transition);
+            /* Make the arrow clickable if needed, or keep pointer-events: none */
+            /* pointer-events: auto; */ /* Uncomment if arrow should be clickable */
         }
 
         .skill-card.active .skill-header::after {
@@ -482,9 +484,11 @@ redirect_from:
             transition: max-height 0.5s ease, padding 0.5s ease;
         }
 
+        /* This rule makes the content visible when skill-card has 'active' class */
         .skill-card.active .skill-content {
             padding: 25px;
-            max-height: 1000px;
+            max-height: 1000px; /* Adjust if content is longer */
+            height: auto; /* Ensure height adjusts */
         }
 
         .skill-list {
@@ -826,10 +830,11 @@ redirect_from:
             transition: max-height 0.5s ease, padding 0.5s ease;
         }
 
+        /* This rule makes the content visible when collapsible-section has 'active' class */
         .collapsible-section.active .collapsible-content {
             padding: 40px;
-            max-height: none; /* Changed from fixed height to none */
-            height: auto; /* Added to ensure proper expanding */
+            max-height: none; /* Allows content to determine height */
+            height: auto; /* Ensure height adjusts */
         }
 
         /* Responsive Styles */
@@ -1023,9 +1028,9 @@ redirect_from:
     </div>
 
     <!-- Development Journey Section (Collapsible) -->
-    <!-- REMOVED onclick from collapsible-header below -->
+    <!-- It already has 'active' class, so it's open by default -->
     <div class="collapsible-section active" id="development-journey">
-        <div class="collapsible-header">
+        <div class="collapsible-header"> <!-- Keep the header clickable for future fix -->
             <h2><i class="fas fa-tasks"></i> Development Journey</h2>
         </div>
         <div class="collapsible-content">
@@ -1084,8 +1089,8 @@ redirect_from:
     <div class="skills-section">
         <h2 class="section-title">Skills & Competencies Demonstrated</h2>
         <div class="skills-grid">
-            <!-- REMOVED onclick from all skill-card divs below -->
-            <div class="skill-card">
+            <!-- ADDED 'active' class to ALL skill-card divs below -->
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
                 </div>
@@ -1099,7 +1104,7 @@ redirect_from:
                     </ul>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-dolly-flatbed"></i> Supply Chain & Logistics</h3>
                 </div>
@@ -1111,7 +1116,7 @@ redirect_from:
                     </ul>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-drafting-compass"></i> Mechanical Design</h3>
                 </div>
@@ -1125,7 +1130,7 @@ redirect_from:
                     </ul>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-chart-line"></i> Analysis & Simulation</h3>
                 </div>
@@ -1139,7 +1144,7 @@ redirect_from:
                     </ul>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-cubes"></i> Fabrication & Testing</h3>
                 </div>
@@ -1152,7 +1157,7 @@ redirect_from:
                     </ul>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-microchip"></i> Electronics & Control</h3>
                 </div>
@@ -1165,7 +1170,7 @@ redirect_from:
                     </ul>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-laptop-code"></i> Software & Algorithms</h3>
                 </div>
@@ -1178,7 +1183,7 @@ redirect_from:
                     </ul>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card active">
                 <div class="skill-header">
                     <h3><i class="fas fa-sitemap"></i> Systems Engineering</h3>
                 </div>
@@ -1244,19 +1249,32 @@ redirect_from:
         // Wait for the DOM to be fully loaded before running scripts that interact with it
         document.addEventListener('DOMContentLoaded', function() {
 
-            // --- NEW: Add event listeners for skill cards ---
+            // --- Event listeners for skill cards ---
             const skillCardElements = document.querySelectorAll('.skill-card');
             skillCardElements.forEach(card => {
                 // Add listener to the card itself
                 card.addEventListener('click', (event) => {
                     // Check if the click target is not a link or button inside the content
-                    if (!event.target.closest('a, button')) {
+                    // And ensure the click wasn't on the header's pseudo-element (arrow) if it were made clickable
+                    if (!event.target.closest('a, button') && !event.target.classList.contains('skill-header')) {
                          toggleSkill(event.currentTarget);
                     }
                 });
+                 // Optional: If you want clicking the header *text* area to also toggle (but not the arrow)
+                 const header = card.querySelector('.skill-header');
+                 if(header) {
+                     header.addEventListener('click', (event) => {
+                         // Prevent double toggling if card listener also fires
+                         event.stopPropagation();
+                         // Check if the click target is not a link or button inside the content
+                         if (!event.target.closest('a, button')) {
+                              toggleSkill(card); // Toggle the parent card
+                         }
+                     });
+                 }
             });
 
-            // --- NEW: Add event listener for the specific collapsible header ---
+            // --- Event listener for the specific collapsible header ---
             const collapsibleHeader = document.querySelector('#development-journey .collapsible-header');
             if (collapsibleHeader) {
                 collapsibleHeader.addEventListener('click', (event) => {
@@ -1268,59 +1286,12 @@ redirect_from:
                 });
             }
 
-            // --- Your existing code for initializing skill cards and handling resize ---
-            const allSkillCards = document.querySelectorAll('.skill-card'); // Renamed to avoid conflict
-            const screenWidth = window.innerWidth;
+            // --- REMOVED: Logic to dynamically open skill cards based on screen width ---
+            // Since all skill cards now have the 'active' class in HTML,
+            // they will be open by default regardless of screen size or this script.
+            // The resize listener logic related to opening/closing cards is also removed.
+            // The click listeners above will still handle manual toggling once the live site issue is fixed.
 
-            // Determine how many cards to show based on screen width
-            let cardsToShow = 1; // Default for small screens
-
-            if (screenWidth >= 1200) {
-                cardsToShow = 4; // For very large screens
-            } else if (screenWidth >= 992) {
-                cardsToShow = 3; // For large screens
-            } else if (screenWidth >= 768) {
-                cardsToShow = 2; // For medium screens
-            }
-
-            // Open the first N cards
-            for (let i = 0; i < Math.min(cardsToShow, allSkillCards.length); i++) {
-                // Check if the card isn't already active from a previous state (less likely here but good practice)
-                if (!allSkillCards[i].classList.contains('active')) {
-                    allSkillCards[i].classList.add('active');
-                }
-            }
-
-            // Re-evaluate on window resize
-            window.addEventListener('resize', function() {
-                const newScreenWidth = window.innerWidth;
-                let newCardsToShow = 1;
-
-                if (newScreenWidth >= 1200) {
-                    newCardsToShow = 4;
-                } else if (newScreenWidth >= 992) {
-                    newCardsToShow = 3;
-                } else if (newScreenWidth >= 768) {
-                    newCardsToShow = 2;
-                }
-
-                // Update which cards are open - only close cards if needed, don't force open already open ones
-                 allSkillCards.forEach((card, index) => {
-                    if (index >= newCardsToShow) {
-                         // Only remove 'active' if it was potentially added by the initial load logic
-                         // This prevents resize from closing manually opened cards beyond the initial set
-                         // A more robust state management might be needed for complex interactions
-                         // For simplicity, we'll just ensure cards beyond the threshold are closed on resize.
-                         card.classList.remove('active');
-                    }
-                     // Optionally, ensure the first N are open if they were closed, uncomment if needed
-                     else {
-                         if (!card.classList.contains('active')) {
-                             card.classList.add('active');
-                         }
-                     }
-                });
-            });
         });
     </script>
 </body>
