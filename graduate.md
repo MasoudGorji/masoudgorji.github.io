@@ -1221,85 +1221,44 @@ redirect_from:
             </li>
         </ul>
     </div>
-    
-    <!-- Add inline JavaScript directly to fix the toggle functionality issues -->
-    <script>
-        // This is run immediately to define the functions in the global scope
-        (function() {
-            // Define toggleSkill function globally
-            window.toggleSkill = function(element) {
-                element.classList.toggle('active');
-            };
-            
-            // Define toggleCollapsible function globally
-            window.toggleCollapsible = function(id) {
-                document.getElementById(id).classList.toggle('active');
-            };
-            
-            // Execute once the DOM is fully loaded
-            document.addEventListener('DOMContentLoaded', function() {
-                // Add click event listeners to all skill-header elements
-                var skillHeaders = document.querySelectorAll('.skill-header');
-                skillHeaders.forEach(function(header) {
-                    header.addEventListener('click', function() {
-                        var parent = this.parentElement;
-                        parent.classList.toggle('active');
-                    });
-                });
-                
-                // Add click event listeners to all collapsible-header elements
-                var collapsibleHeaders = document.querySelectorAll('.collapsible-header');
-                collapsibleHeaders.forEach(function(header) {
-                    header.addEventListener('click', function() {
-                        var parent = this.parentElement;
-                        parent.classList.toggle('active');
-                    });
-                });
-                
-                // Initialize skill cards based on screen width
-                const skillCards = document.querySelectorAll('.skill-card');
-                const screenWidth = window.innerWidth;
-                
-                // Determine how many cards to show based on screen width
-                let cardsToShow = 1; // Default for small screens
-                
-                if (screenWidth >= 1200) {
-                    cardsToShow = 4; // For very large screens
-                } else if (screenWidth >= 992) {
-                    cardsToShow = 3; // For large screens
-                } else if (screenWidth >= 768) {
-                    cardsToShow = 2; // For medium screens
-                }
-                
-                // Open the first N cards
-                for (let i = 0; i < Math.min(cardsToShow, skillCards.length); i++) {
-                    skillCards[i].classList.add('active');
-                }
-                
-                // Re-evaluate on window resize
-                window.addEventListener('resize', function() {
-                    const newScreenWidth = window.innerWidth;
-                    let newCardsToShow = 1;
-                    
-                    if (newScreenWidth >= 1200) {
-                        newCardsToShow = 4;
-                    } else if (newScreenWidth >= 992) {
-                        newCardsToShow = 3;
-                    } else if (newScreenWidth >= 768) {
-                        newCardsToShow = 2;
-                    }
-                    
-                    // Update which cards are open
-                    skillCards.forEach((card, index) => {
-                        if (index < newCardsToShow) {
-                            card.classList.add('active');
-                        } else {
-                            card.classList.remove('active');
-                        }
-                    });
-                });
-            });
-        })();
-    </script>
 </body>
 </html>
+
+<script>
+// Direct script for collapsible functionality - more GitHub Pages friendly approach
+document.addEventListener('DOMContentLoaded', function() {
+    // For skill cards
+    var skillHeaders = document.querySelectorAll('.skill-card .skill-header');
+    for (var i = 0; i < skillHeaders.length; i++) {
+        skillHeaders[i].addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    }
+    
+    // For collapsible sections
+    var collapsibleHeaders = document.querySelectorAll('.collapsible-section .collapsible-header');
+    for (var i = 0; i < collapsibleHeaders.length; i++) {
+        collapsibleHeaders[i].addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    }
+    
+    // Open first skill card by default (or more on larger screens)
+    var skillCards = document.querySelectorAll('.skill-card');
+    var screenWidth = window.innerWidth;
+    
+    var cardsToShow = 1; // Default for small screens
+    
+    if (screenWidth >= 1200) {
+        cardsToShow = 4; // For very large screens
+    } else if (screenWidth >= 992) {
+        cardsToShow = 3; // For large screens
+    } else if (screenWidth >= 768) {
+        cardsToShow = 2; // For medium screens
+    }
+    
+    for (var i = 0; i < Math.min(cardsToShow, skillCards.length); i++) {
+        skillCards[i].classList.add('active');
+    }
+});
+</script>
