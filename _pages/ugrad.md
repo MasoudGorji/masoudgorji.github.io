@@ -915,7 +915,7 @@ redirect_from:
             <div class="skills-col">
                 <h3>Design & Fabrication</h3>
                 <ul class="skills-list">
-                    <li>Exoskeleton mechanism design</li>
+                    <li>Exoskeleton mechanism design (alongside other team members)</li>
                     <li>Parallel-jaw gripper design</li>
                     <li>Sensor integration design</li>
                     <li>Prototyping (cardboard, wood, 3D printing)</li>

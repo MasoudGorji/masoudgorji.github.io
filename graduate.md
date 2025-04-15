@@ -3,7 +3,7 @@ layout: archive
 #title: "Master's Project"
 #excerpt: "Master's Project"
 author_profile: true
-redirect_from:
+redirect_from: 
   - /graduate
 ---
 
@@ -15,6 +15,9 @@ redirect_from:
     <title>Masoud Rahimi Gorji | Interactive Robotic Arm for HRI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Import fonts at the top of stylesheet */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+        
         /* Color Palette - Luxurious Tech Theme */
         :root {
             --primary: #1E3A8A;         /* Deep Navy Blue */
@@ -38,8 +41,6 @@ redirect_from:
             --font-heading: 'Poppins', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
-
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
         * {
             box-sizing: border-box;
@@ -433,8 +434,6 @@ redirect_from:
             box-shadow: var(--shadow);
             overflow: hidden;
             transition: var(--transition);
-            /* Added cursor pointer here as the card itself is now the click target */
-            cursor: pointer;
         }
 
         .skill-card:hover {
@@ -446,11 +445,9 @@ redirect_from:
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 20px 25px;
-            /* Removed cursor: pointer; from here */
+            cursor: pointer;
             position: relative;
             transition: var(--transition);
-            /* Make sure header doesn't steal clicks from the card */
-            pointer-events: none;
         }
 
         .skill-header h3 {
@@ -787,7 +784,7 @@ redirect_from:
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 20px 30px;
-            cursor: pointer; /* Keep cursor pointer here as header is the trigger */
+            cursor: pointer;
             position: relative;
             transition: var(--transition);
         }
@@ -837,11 +834,11 @@ redirect_from:
             .header h1 {
                 font-size: 2.5rem;
             }
-
+            
             .overview-content {
                 padding: 40px;
             }
-
+            
             .skills-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
@@ -851,56 +848,56 @@ redirect_from:
             .header {
                 padding: 60px 0 40px;
             }
-
+            
             .header h1 {
                 font-size: 2rem;
             }
-
+            
             .header p {
                 font-size: 1.1rem;
             }
-
+            
             .section-title {
                 font-size: 1.8rem;
             }
-
+            
             .timeline::before {
                 left: 31px;
             }
-
+            
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
                 margin-bottom: 30px;
             }
-
+            
             .timeline-left::after, .timeline-right::after {
                 left: 18px;
             }
-
+            
             .timeline-right {
                 left: 0%;
             }
-
+            
             .timeline-left::before, .timeline-right::before {
                 left: 60px;
                 border-width: 10px 10px 10px 0;
                 border-color: transparent var(--accent-soft) transparent transparent;
             }
-
+            
             .overview-content, .overview-image {
                 flex: 100%;
             }
-
+            
             .contributions-section, .technical-specs, .final-demo {
                 padding: 30px;
             }
-
+            
             .contributions-list li {
                 padding: 20px 20px 20px 70px;
             }
-
+            
             .collapsible-section.active .collapsible-content {
                 padding: 30px;
             }
@@ -910,28 +907,28 @@ redirect_from:
             .header h1 {
                 font-size: 1.8rem;
             }
-
+            
             .badge {
                 padding: 5px 10px;
                 font-size: 0.8rem;
                 margin: 5px 3px;
             }
-
+            
             .specs-grid, .skills-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .skill-header h3, .spec-title {
                 font-size: 1.1rem;
             }
-
+            
             .contributions-list li::before {
                 width: 35px;
                 height: 35px;
                 line-height: 35px;
                 font-size: 1rem;
             }
-
+            
             .contributions-list li {
                 padding-left: 60px;
             }
@@ -944,7 +941,7 @@ redirect_from:
         <div class="header-content">
             <h1>Interactive Robotic Arm for Safe Human-Robot Handover</h1>
             <p>My master's thesis project demonstrating the design, fabrication, and implementation of a low-cost 5-DOF robotic arm with advanced perception and safety features</p>
-
+            
             <div class="badges-container">
                 <span class="badge badge-primary">Robotics</span>
                 <span class="badge badge-secondary">Human-Robot Interaction</span>
@@ -962,13 +959,13 @@ redirect_from:
         <div class="overview-content">
             <h2 class="section-title">Project Overview</h2>
             <p>I successfully designed, built, and tested a complete low-cost 5-DOF robotic arm system specifically designed for safe human-robot object handover interactions. This project addressed the challenge of creating affordable yet capable robotic assistants for collaborative environments.</p>
-
+            
             <div class="highlight-box">
                 <p><strong>Key Innovation:</strong> Combining custom 3D-printed hardware with advanced perception systems to create a safe, interactive robotic platform at a fraction of the cost of commercial solutions.</p>
             </div>
-
+            
             <p>The final system leverages custom cycloidal gearboxes, a hybrid motor approach, and deep learning-based perception to enable safe and reliable object handover from a human user, demonstrating that affordable robotics can achieve meaningful human-robot interaction.</p>
-
+            
             <a href="#final-demo" class="btn">See Final Demonstration <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="overview-image">
@@ -1023,7 +1020,6 @@ redirect_from:
     </div>
 
     <!-- Development Journey Section (Collapsible) -->
-    <!-- REMOVED onclick from collapsible-header below -->
     <div class="collapsible-section active" id="development-journey">
         <div class="collapsible-header">
             <h2><i class="fas fa-tasks"></i> Development Journey</h2>
@@ -1084,7 +1080,6 @@ redirect_from:
     <div class="skills-section">
         <h2 class="section-title">Skills & Competencies Demonstrated</h2>
         <div class="skills-grid">
-            <!-- REMOVED onclick from all skill-card divs below -->
             <div class="skill-card">
                 <div class="skill-header">
                     <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
@@ -1198,7 +1193,7 @@ redirect_from:
         <h2>Final System Demonstration</h2>
         <p>The complete system successfully integrates custom hardware with perception and control software to enable safe object handover from a human user. The system detects both graspable objects and human hands, creates a safety mask to avoid grasping the user's hand, and calculates optimal grasp points and robot trajectories.</p>
         <img class="demo-video" src="/api/placeholder/800/450?text=System Demonstration" alt="Final Handover Demonstration">
-
+        
         <div style="margin-top: 40px;">
             <a href="#" class="btn">Download Full Report <i class="fas fa-file-pdf"></i></a>
             <a href="#" class="btn btn-outline" style="margin-left: 15px;">View Source Code <i class="fab fa-github"></i></a>
@@ -1226,102 +1221,85 @@ redirect_from:
             </li>
         </ul>
     </div>
-
-
+    
+    <!-- Add inline JavaScript directly to fix the toggle functionality issues -->
     <script>
-        // Function definitions remain globally accessible within the script tag
-        function toggleSkill(element) {
-            element.classList.toggle('active');
-        }
-
-        function toggleCollapsible(id) {
-            const section = document.getElementById(id);
-            if (section) {
-                section.classList.toggle('active');
-            }
-        }
-
-        // Wait for the DOM to be fully loaded before running scripts that interact with it
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // --- NEW: Add event listeners for skill cards ---
-            const skillCardElements = document.querySelectorAll('.skill-card');
-            skillCardElements.forEach(card => {
-                // Add listener to the card itself
-                card.addEventListener('click', (event) => {
-                    // Check if the click target is not a link or button inside the content
-                    if (!event.target.closest('a, button')) {
-                         toggleSkill(event.currentTarget);
+        // This is run immediately to define the functions in the global scope
+        (function() {
+            // Define toggleSkill function globally
+            window.toggleSkill = function(element) {
+                element.classList.toggle('active');
+            };
+            
+            // Define toggleCollapsible function globally
+            window.toggleCollapsible = function(id) {
+                document.getElementById(id).classList.toggle('active');
+            };
+            
+            // Execute once the DOM is fully loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add click event listeners to all skill-header elements
+                var skillHeaders = document.querySelectorAll('.skill-header');
+                skillHeaders.forEach(function(header) {
+                    header.addEventListener('click', function() {
+                        var parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    });
+                });
+                
+                // Add click event listeners to all collapsible-header elements
+                var collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+                collapsibleHeaders.forEach(function(header) {
+                    header.addEventListener('click', function() {
+                        var parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    });
+                });
+                
+                // Initialize skill cards based on screen width
+                const skillCards = document.querySelectorAll('.skill-card');
+                const screenWidth = window.innerWidth;
+                
+                // Determine how many cards to show based on screen width
+                let cardsToShow = 1; // Default for small screens
+                
+                if (screenWidth >= 1200) {
+                    cardsToShow = 4; // For very large screens
+                } else if (screenWidth >= 992) {
+                    cardsToShow = 3; // For large screens
+                } else if (screenWidth >= 768) {
+                    cardsToShow = 2; // For medium screens
+                }
+                
+                // Open the first N cards
+                for (let i = 0; i < Math.min(cardsToShow, skillCards.length); i++) {
+                    skillCards[i].classList.add('active');
+                }
+                
+                // Re-evaluate on window resize
+                window.addEventListener('resize', function() {
+                    const newScreenWidth = window.innerWidth;
+                    let newCardsToShow = 1;
+                    
+                    if (newScreenWidth >= 1200) {
+                        newCardsToShow = 4;
+                    } else if (newScreenWidth >= 992) {
+                        newCardsToShow = 3;
+                    } else if (newScreenWidth >= 768) {
+                        newCardsToShow = 2;
                     }
+                    
+                    // Update which cards are open
+                    skillCards.forEach((card, index) => {
+                        if (index < newCardsToShow) {
+                            card.classList.add('active');
+                        } else {
+                            card.classList.remove('active');
+                        }
+                    });
                 });
             });
-
-            // --- NEW: Add event listener for the specific collapsible header ---
-            const collapsibleHeader = document.querySelector('#development-journey .collapsible-header');
-            if (collapsibleHeader) {
-                collapsibleHeader.addEventListener('click', (event) => {
-                    // Find the parent collapsible section to get its ID
-                    const parentSection = event.currentTarget.closest('.collapsible-section');
-                    if (parentSection && parentSection.id) {
-                        toggleCollapsible(parentSection.id);
-                    }
-                });
-            }
-
-            // --- Your existing code for initializing skill cards and handling resize ---
-            const allSkillCards = document.querySelectorAll('.skill-card'); // Renamed to avoid conflict
-            const screenWidth = window.innerWidth;
-
-            // Determine how many cards to show based on screen width
-            let cardsToShow = 1; // Default for small screens
-
-            if (screenWidth >= 1200) {
-                cardsToShow = 4; // For very large screens
-            } else if (screenWidth >= 992) {
-                cardsToShow = 3; // For large screens
-            } else if (screenWidth >= 768) {
-                cardsToShow = 2; // For medium screens
-            }
-
-            // Open the first N cards
-            for (let i = 0; i < Math.min(cardsToShow, allSkillCards.length); i++) {
-                // Check if the card isn't already active from a previous state (less likely here but good practice)
-                if (!allSkillCards[i].classList.contains('active')) {
-                    allSkillCards[i].classList.add('active');
-                }
-            }
-
-            // Re-evaluate on window resize
-            window.addEventListener('resize', function() {
-                const newScreenWidth = window.innerWidth;
-                let newCardsToShow = 1;
-
-                if (newScreenWidth >= 1200) {
-                    newCardsToShow = 4;
-                } else if (newScreenWidth >= 992) {
-                    newCardsToShow = 3;
-                } else if (newScreenWidth >= 768) {
-                    newCardsToShow = 2;
-                }
-
-                // Update which cards are open - only close cards if needed, don't force open already open ones
-                 allSkillCards.forEach((card, index) => {
-                    if (index >= newCardsToShow) {
-                         // Only remove 'active' if it was potentially added by the initial load logic
-                         // This prevents resize from closing manually opened cards beyond the initial set
-                         // A more robust state management might be needed for complex interactions
-                         // For simplicity, we'll just ensure cards beyond the threshold are closed on resize.
-                         card.classList.remove('active');
-                    }
-                     // Optionally, ensure the first N are open if they were closed, uncomment if needed
-                     else {
-                         if (!card.classList.contains('active')) {
-                             card.classList.add('active');
-                         }
-                     }
-                });
-            });
-        });
+        })();
     </script>
 </body>
 </html>
