@@ -933,6 +933,63 @@ redirect_from:
             }
         }
     </style>
+    
+    <script>
+        // Toggle skills cards
+        function toggleSkill(element) {
+            element.classList.toggle('active');
+        }
+        
+        // Toggle collapsible sections
+        function toggleCollapsible(id) {
+            document.getElementById(id).classList.toggle('active');
+        }
+        
+        // Initialize skill cards based on screen width
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillCards = document.querySelectorAll('.skill-card');
+            const screenWidth = window.innerWidth;
+            
+            // Determine how many cards to show based on screen width
+            let cardsToShow = 1; // Default for small screens
+            
+            if (screenWidth >= 1200) {
+                cardsToShow = 4; // For very large screens
+            } else if (screenWidth >= 992) {
+                cardsToShow = 3; // For large screens
+            } else if (screenWidth >= 768) {
+                cardsToShow = 2; // For medium screens
+            }
+            
+            // Open the first N cards
+            for (let i = 0; i < Math.min(cardsToShow, skillCards.length); i++) {
+                skillCards[i].classList.add('active');
+            }
+            
+            // Re-evaluate on window resize
+            window.addEventListener('resize', function() {
+                const newScreenWidth = window.innerWidth;
+                let newCardsToShow = 1;
+                
+                if (newScreenWidth >= 1200) {
+                    newCardsToShow = 4;
+                } else if (newScreenWidth >= 992) {
+                    newCardsToShow = 3;
+                } else if (newScreenWidth >= 768) {
+                    newCardsToShow = 2;
+                }
+                
+                // Update which cards are open
+                skillCards.forEach((card, index) => {
+                    if (index < newCardsToShow) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Header Section -->
@@ -1222,61 +1279,6 @@ redirect_from:
     </div>
     
     
-    <script>
-        // Toggle skills cards
-        function toggleSkill(element) {
-            element.classList.toggle('active');
-        }
-        
-        // Toggle collapsible sections
-        function toggleCollapsible(id) {
-            document.getElementById(id).classList.toggle('active');
-        }
-        
-        // Initialize skill cards based on screen width
-        document.addEventListener('DOMContentLoaded', function() {
-            const skillCards = document.querySelectorAll('.skill-card');
-            const screenWidth = window.innerWidth;
-            
-            // Determine how many cards to show based on screen width
-            let cardsToShow = 1; // Default for small screens
-            
-            if (screenWidth >= 1200) {
-                cardsToShow = 4; // For very large screens
-            } else if (screenWidth >= 992) {
-                cardsToShow = 3; // For large screens
-            } else if (screenWidth >= 768) {
-                cardsToShow = 2; // For medium screens
-            }
-            
-            // Open the first N cards
-            for (let i = 0; i < Math.min(cardsToShow, skillCards.length); i++) {
-                skillCards[i].classList.add('active');
-            }
-            
-            // Re-evaluate on window resize
-            window.addEventListener('resize', function() {
-                const newScreenWidth = window.innerWidth;
-                let newCardsToShow = 1;
-                
-                if (newScreenWidth >= 1200) {
-                    newCardsToShow = 4;
-                } else if (newScreenWidth >= 992) {
-                    newCardsToShow = 3;
-                } else if (newScreenWidth >= 768) {
-                    newCardsToShow = 2;
-                }
-                
-                // Update which cards are open
-                skillCards.forEach((card, index) => {
-                    if (index < newCardsToShow) {
-                        card.classList.add('active');
-                    } else {
-                        card.classList.remove('active');
-                    }
-                });
-            });
-        });
-    </script>
+    
 </body>
 </html>

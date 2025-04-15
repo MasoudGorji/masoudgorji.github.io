@@ -539,10 +539,10 @@ p {
   <h2 class="section-title">About Me</h2>
   <div class="section-content">
     <p>I recently completed my Master’s in Mechatronics Engineering at Amirkabir University of Technology.
-    For my master's research project I'm building a 5-DOF robotic arm and I'm going to use that arm for human to robot object handovers. My undergraduate research project was "implementation of a haptic exoskeleton for teleoperation and virtual reality purposes".</p>
+    For my master's research project I designed and built a 5-DOF robotic arm and used it for human to robot object handovers. My undergraduate research project was about "implementation of a haptic exoskeleton for teleoperation and virtual reality purposes".</p>
     
     
-    <p>I have a passion for creating robotic systems that can interact safely and effectively with humans. My academic and research journey has equipped me with a unique blend of mechanical design, electronics, and programming skills.</p>
+    <p>I am passionate about creating robotic systems that can interact safely and effectively with humans. My academic and research journey has equipped me with a unique blend of mechanical design, electronics, and programming skills.</p>
     
     <p>I have hands-on experience bringing a robot from conception to reality by developing both the hardware and software components. I enjoy the design process and creating robotic systems that can work in harmony with humans.</p>
     
