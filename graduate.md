@@ -16,22 +16,22 @@ redirect_from:
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <script>
-        // Toggle skills cards
+        
         function toggleSkill(element) {
             element.classList.toggle('active');
         }
         
-        // Toggle collapsible sections
+        
         function toggleCollapsible(id) {
             document.getElementById(id).classList.toggle('active');
         }
         
-        // Initialize skill cards based on screen width
+        
         document.addEventListener('DOMContentLoaded', function() {
             const skillCards = document.querySelectorAll('.skill-card');
             const screenWidth = window.innerWidth;
             
-            // Determine how many cards to show based on screen width
+            
             let cardsToShow = 1; // Default for small screens
             
             if (screenWidth >= 1200) {
@@ -42,12 +42,12 @@ redirect_from:
                 cardsToShow = 2; // For medium screens
             }
             
-            // Open the first N cards
+            
             for (let i = 0; i < Math.min(cardsToShow, skillCards.length); i++) {
                 skillCards[i].classList.add('active');
             }
             
-            // Re-evaluate on window resize
+            
             window.addEventListener('resize', function() {
                 const newScreenWidth = window.innerWidth;
                 let newCardsToShow = 1;
@@ -60,7 +60,7 @@ redirect_from:
                     newCardsToShow = 2;
                 }
                 
-                // Update which cards are open
+                
                 skillCards.forEach((card, index) => {
                     if (index < newCardsToShow) {
                         card.classList.add('active');
