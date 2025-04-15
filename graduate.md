@@ -1138,7 +1138,7 @@ redirect_from:
                     <ul class="skill-list">
                         <li>Kinematic Analysis (Forward/inverse kinematics)</li>
                         <li>Dynamic Analysis (Newton-Euler method)</li>
-                        <li>Stress Analysis for gearbox design</li>
+                        <li>Stress Analysis for gearbox design (FEM Simulation)</li>
                         <li>Tolerance Analysis for performance and fit</li>
                         <li>Workspace Analysis</li>
                     </ul>

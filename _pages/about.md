@@ -622,7 +622,7 @@ p {
       </div>
       <div class="skill-item">
         <div class="skill-icon"><i class="fas fa-cubes"></i></div>
-        <div class="skill-name">3D Printing</div>
+        <div class="skill-name">Prototyping</div>
       </div>
       <div class="skill-item">
         <div class="skill-icon"><i class="fas fa-brain"></i></div>
