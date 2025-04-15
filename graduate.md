@@ -52,7 +52,7 @@ redirect_from:
         max-width: 1800px; /* Or control width via layout */
         margin: 0 auto;
         padding: 0 20px; /* Adjust padding as needed */
-        overflow-x: hidden;
+        overflow-x: hidden; /* Prevent horizontal scrollbars */
     }
 
     .project-page-wrapper h1,
@@ -437,7 +437,7 @@ redirect_from:
         background: white;
         border-radius: var(--border-radius-lg);
         box-shadow: var(--shadow);
-        overflow: hidden;
+        overflow: hidden; /* Important for max-height transition */
         transition: var(--transition);
     }
 
@@ -454,6 +454,9 @@ redirect_from:
         cursor: pointer;
         position: relative;
         transition: var(--transition);
+        display: flex; /* Align icon and text */
+        justify-content: space-between; /* Push icon to the right */
+        align-items: center; /* Vertically center content */
     }
 
     .project-page-wrapper .skill-header h3 {
@@ -462,6 +465,7 @@ redirect_from:
         color: white;
         display: flex; /* Align icon and text */
         align-items: center; /* Align icon and text */
+        margin-right: 15px; /* Space between text and icon */
     }
     .project-page-wrapper .skill-header h3 i {
         margin-right: 10px; /* Space between icon and text */
@@ -471,16 +475,17 @@ redirect_from:
         content: '\f107'; /* Down arrow */
         font-family: 'Font Awesome 6 Free';
         font-weight: 900;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+        /* position: absolute; Removed */
+        /* right: 20px; Removed */
+        /* top: 50%; Removed */
+        /* transform: translateY(-50%); Removed */
         font-size: 1.2rem;
-        transition: var(--transition);
+        transition: transform 0.3s ease; /* Only transition transform */
+        flex-shrink: 0; /* Prevent icon from shrinking */
     }
 
     .project-page-wrapper .skill-card.active .skill-header::after {
-        transform: translateY(-50%) rotate(180deg); /* Up arrow */
+        transform: rotate(180deg); /* Up arrow */
     }
 
     .project-page-wrapper .skill-content {
@@ -813,6 +818,7 @@ redirect_from:
         color: white;
         display: flex;
         align-items: center;
+        margin-right: 15px; /* Space between title and icon */
     }
 
     .project-page-wrapper .collapsible-header h2 i {
@@ -830,7 +836,6 @@ redirect_from:
         font-size: 1.5rem;
         transition: transform 0.3s ease; /* Only transition transform */
         flex-shrink: 0; /* Prevent icon from shrinking */
-        margin-left: 15px; /* Space between title and icon */
     }
 
     .project-page-wrapper .collapsible-section.active .collapsible-header::after {
@@ -1074,7 +1079,7 @@ redirect_from:
     </div>
 
     <!-- Development Journey Section (Collapsible) -->
-    <!-- REMOVED 'active' class - let JS handle the initial state if needed, or keep it if it should always start open -->
+    <!-- Ensure NO 'active' class here initially for debugging -->
     <div class="collapsible-section" id="development-journey">
         <div class="collapsible-header">
             <h2><i class="fas fa-tasks"></i> Development Journey</h2>
@@ -1140,7 +1145,7 @@ redirect_from:
     <div class="skills-section">
         <h2 class="section-title">Skills & Competencies Demonstrated</h2>
         <div class="skills-grid">
-            <!-- Skill cards remain the same, e.g.: -->
+            <!-- Ensure NO 'active' class on any skill-card initially for debugging -->
             <div class="skill-card">
                 <div class="skill-header">
                     <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
@@ -1294,7 +1299,7 @@ redirect_from:
             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; <span id="current-year"></span> Masoud Rahimi Gorji. All rights reserved.</p>
+        <p>&copy; <span id="current-year">2024</span> Masoud Rahimi Gorji. All rights reserved.</p> <!-- Placeholder Year -->
         <p>
             <a href="#">Home</a> |
             <a href="#">About</a> |
@@ -1304,98 +1309,136 @@ redirect_from:
 
 </div> <!-- End project-page-wrapper -->
 
-<!-- JavaScript should be placed at the end, ideally loaded via the layout -->
+<!-- ====================================================== -->
+<!--            MODIFIED JAVASCRIPT SECTION                -->
+<!-- ====================================================== -->
 <script>
     // Wait for the DOM to be fully loaded before running scripts
     document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM fully loaded and parsed. Running project page script."); // DEBUG
 
-        // --- Collapsible Section Logic ---
-        const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
-        collapsibleHeaders.forEach(function(header) {
-            header.addEventListener('click', function() {
-                // Find the parent .collapsible-section and toggle the 'active' class
-                const parentSection = this.closest('.collapsible-section');
-                if (parentSection) {
-                    parentSection.classList.toggle('active');
-                } else {
-                    console.error("Could not find parent .collapsible-section for", this);
-                }
+        try { // Wrap main logic in try...catch
+
+            // --- Collapsible Section Logic ---
+            console.log("Setting up collapsible section listeners..."); // DEBUG
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+            console.log(`Found ${collapsibleHeaders.length} collapsible headers.`); // DEBUG
+
+            collapsibleHeaders.forEach(function(header, index) {
+                header.addEventListener('click', function() {
+                    console.log(`Collapsible header #${index + 1} clicked.`); // DEBUG
+                    try { // Inner try...catch for click handler
+                        const parentSection = this.closest('.collapsible-section');
+                        if (parentSection) {
+                            console.log("Found parent section. Toggling 'active' class."); // DEBUG
+                            parentSection.classList.toggle('active');
+                        } else {
+                            console.error("ERROR: Could not find parent .collapsible-section for", this); // DEBUG ERROR
+                        }
+                    } catch (clickError) {
+                        console.error("ERROR inside collapsible click handler:", clickError); // DEBUG ERROR
+                    }
+                });
             });
-        });
+            console.log("Collapsible section listeners attached."); // DEBUG
 
-        // --- Skill Card Logic ---
-        const skillHeaders = document.querySelectorAll('.skill-header');
-        skillHeaders.forEach(function(header) {
-            header.addEventListener('click', function() {
-                // Find the parent .skill-card and toggle the 'active' class
-                const parentCard = this.closest('.skill-card');
-                if (parentCard) {
-                    parentCard.classList.toggle('active');
-                } else {
-                     console.error("Could not find parent .skill-card for", this);
-                }
+            // --- Skill Card Logic ---
+            console.log("Setting up skill card listeners..."); // DEBUG
+            const skillHeaders = document.querySelectorAll('.skill-header');
+            console.log(`Found ${skillHeaders.length} skill headers.`); // DEBUG
+
+            skillHeaders.forEach(function(header, index) {
+                header.addEventListener('click', function() {
+                    console.log(`Skill header #${index + 1} clicked.`); // DEBUG
+                    try { // Inner try...catch for click handler
+                        const parentCard = this.closest('.skill-card');
+                        if (parentCard) {
+                            console.log("Found parent card. Toggling 'active' class."); // DEBUG
+                            parentCard.classList.toggle('active');
+                        } else {
+                             console.error("ERROR: Could not find parent .skill-card for", this); // DEBUG ERROR
+                        }
+                    } catch (clickError) {
+                        console.error("ERROR inside skill card click handler:", clickError); // DEBUG ERROR
+                    }
+                });
             });
-        });
-
-        // --- Initial State Logic (Optional - Keep or Remove) ---
-
-        // Development Journey: Decide if it should start open or closed.
-        // If it should start open, add the 'active' class here or back in the HTML.
-        // If it should start closed, ensure the 'active' class is NOT in the HTML and not added here.
-        const devJourney = document.getElementById('development-journey');
-        if (devJourney) {
-             // Example: Start Development Journey open by default
-             devJourney.classList.add('active');
-             // Example: Start Development Journey closed by default (ensure HTML class is also removed)
-             // devJourney.classList.remove('active');
-        }
+            console.log("Skill card listeners attached."); // DEBUG
 
 
-        // Skill Cards: Decide if some should start open based on screen width, or all start closed.
+            // --- Initial State Logic (DEBUGGING: Temporarily Disabled) ---
+            console.log("Initial state logic is currently disabled for debugging."); // DEBUG
 
-        // Option A: All skill cards start closed (remove the logic below)
-
-        // Option B: Open first N skill cards based on screen width (Keep/Adapt the logic below)
-        const skillCards = document.querySelectorAll('.skill-card');
-
-        function setInitialSkillCardsState() {
-            const screenWidth = window.innerWidth;
-            let cardsToShow = 0; // Start with 0 open by default
-
-            // Define how many cards to show based on screen width
-            // Adjust these breakpoints and numbers as needed
-            if (screenWidth >= 1200) {
-                cardsToShow = 4; // Example: Open first 4 on large screens
-            } else if (screenWidth >= 992) {
-                cardsToShow = 3; // Example: Open first 3 on medium-large screens
-            } else if (screenWidth >= 768) {
-                 cardsToShow = 2; // Example: Open first 2 on medium screens
+            /*
+            // Development Journey: Decide if it should start open or closed.
+            const devJourney = document.getElementById('development-journey');
+            if (devJourney) {
+                 console.log("Attempting to set initial state for Development Journey."); // DEBUG
+                 // Example: Start Development Journey open by default
+                 // devJourney.classList.add('active');
+                 // console.log("Added 'active' class to Development Journey."); // DEBUG
+                 // Example: Start Development Journey closed by default (ensure HTML class is also removed)
+                 devJourney.classList.remove('active'); // Explicitly ensure it's closed if uncommented
+                 console.log("Ensured 'active' class is removed from Development Journey."); // DEBUG
             } else {
-                 cardsToShow = 1; // Example: Open first 1 on small screens
+                console.warn("WARN: Could not find element with ID 'development-journey'."); // DEBUG WARNING
+            }
+            */
+
+            /*
+            // Skill Cards: Decide if some should start open based on screen width, or all start closed.
+            // Option A: All skill cards start closed (remove the logic below)
+            // Option B: Open first N skill cards based on screen width (Keep/Adapt the logic below)
+            const skillCards = document.querySelectorAll('.skill-card');
+
+            function setInitialSkillCardsState() {
+                console.log("Running setInitialSkillCardsState..."); // DEBUG
+                try { // Inner try...catch
+                    const screenWidth = window.innerWidth;
+                    let cardsToShow = 0; // Start with 0 open by default
+
+                    if (screenWidth >= 1200) { cardsToShow = 4; }
+                    else if (screenWidth >= 992) { cardsToShow = 3; }
+                    else if (screenWidth >= 768) { cardsToShow = 2; }
+                    else { cardsToShow = 1; }
+                    console.log(`Screen width: ${screenWidth}px, showing ${cardsToShow} skill cards initially.`); // DEBUG
+
+                    skillCards.forEach((card, index) => {
+                        if (index < cardsToShow) {
+                            card.classList.add('active');
+                        } else {
+                            card.classList.remove('active');
+                        }
+                    });
+                     console.log("Initial skill card states applied."); // DEBUG
+                } catch (skillStateError) {
+                     console.error("ERROR in setInitialSkillCardsState:", skillStateError); // DEBUG ERROR
+                }
             }
 
-            // Apply the 'active' class
-            skillCards.forEach((card, index) => {
-                if (index < cardsToShow) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active'); // Ensure others are closed
-                }
-            });
+            // Set initial state on load
+            // setInitialSkillCardsState(); // Uncomment this line to enable Option B
+
+            // Optional: Update on resize (can cause layout shifts, use with caution)
+            // window.addEventListener('resize', setInitialSkillCardsState); // Uncomment this line to enable Option B resize updates
+            */
+
+
+            // --- Footer Year ---
+            console.log("Setting footer year..."); // DEBUG
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+                console.log("Footer year updated."); // DEBUG
+            } else {
+                console.warn("WARN: Could not find element with ID 'current-year'."); // DEBUG WARNING
+            }
+
+        } catch (scriptError) {
+            console.error("FATAL ERROR in project page script:", scriptError); // DEBUG ERROR
         }
 
-        // Set initial state on load
-        // setInitialSkillCardsState(); // Uncomment this line to enable Option B
-
-        // Optional: Update on resize (can cause layout shifts, use with caution)
-        // window.addEventListener('resize', setInitialSkillCardsState); // Uncomment this line to enable Option B resize updates
-
-
-        // --- Footer Year ---
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
+        console.log("Project page script finished."); // DEBUG
 
     }); // End DOMContentLoaded
 </script>
