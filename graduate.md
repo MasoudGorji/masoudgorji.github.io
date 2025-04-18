@@ -1202,13 +1202,47 @@ redirect_from:
     <div class="final-demo" id="final-demo">
         <h2>Final System Demonstration</h2>
         <p>The complete system successfully integrates custom hardware with perception and control software to enable safe object handover from a human user. The system detects both graspable objects and human hands, creates a safety mask to avoid grasping the user's hand, and calculates optimal grasp points and robot trajectories.</p>
-        <img class="demo-video" src="/api/placeholder/800/450?text=System Demonstration" alt="Final Handover Demonstration">
+        
+        <div class="video-container" style="position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-width: 800px; margin: 0 auto;">
+            <!-- Custom poster image that disappears on play -->
+            <div class="video-poster" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('/api/placeholder/800/450?text=System Demonstration') center/cover; display: flex; align-items: center; justify-content: center; z-index: 1; cursor: pointer;">
+                <div class="play-button" style="width: 80px; height: 80px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <div style="width: 0; height: 0; border-style: solid; border-width: 15px 0 15px 26px; border-color: transparent transparent transparent #333; margin-left: 5px;"></div>
+                </div>
+            </div>
+            
+            <video class="demo-video" style="width: 100%; display: block; background: #000;" controls preload="metadata">
+                <source src="/graduate/images/handovervidmrg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
-        <div style="margin-top: 40px;">
+        <div style="margin-top: 40px; text-align: center;">
             <a href="#" class="btn">Download Full Report <i class="fas fa-file-pdf"></i></a>
             <a href="#" class="btn btn-outline" style="margin-left: 15px;">View Source Code <i class="fab fa-github"></i></a>
         </div>
     </div>
+
+    <script>
+        // Simple script to handle the custom play button and poster
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoContainer = document.querySelector('.video-container');
+            const poster = document.querySelector('.video-poster');
+            const video = document.querySelector('.demo-video');
+            
+            if (poster && video) {
+                poster.addEventListener('click', function() {
+                    poster.style.display = 'none';
+                    video.play();
+                });
+                
+                // Show poster again when video ends
+                video.addEventListener('ended', function() {
+                    poster.style.display = 'flex';
+                });
+            }
+        });
+    </script>
 
     <!-- Contributions Section -->
     <div class="contributions-section">
