@@ -738,7 +738,7 @@ redirect_from:
     <div class="overview-section">
         <div class="overview-content">
             <h2 class="section-title">Project Overview</h2>
-            <p>For my undergraduate thesis, I developed HEXON, a two-fingered haptic exoskeleton integrated with a force-sensitive robotic gripper. This dual-purpose system was designed to enable intuitive teleoperation of a robotic arm and enhance immersion in virtual reality environments.</p>
+            <p>For my undergraduate thesis, me and my team developed HEXON, a two-fingered haptic exoskeleton integrated with a force-sensitive robotic gripper. This dual-purpose system was designed to enable intuitive teleoperation of a robotic arm and enhance immersion in virtual reality environments.</p>
             
             <div class="highlight-box">
                 <p><strong>Key Innovation:</strong> Creating a bi-directional haptic interface that allows users to not only control robotic or virtual hands but also feel realistic feedback when interacting with objects.</p>

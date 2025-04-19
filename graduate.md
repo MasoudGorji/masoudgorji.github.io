@@ -1125,7 +1125,7 @@ redirect_from:
                         <li>Robotic Arm Kinematics (DOF selection, DH parameters)</li>
                         <li>Mechanism Design (Gripper mechanism)</li>
                         <li>Gearbox Design (Cycloidal profile generation)</li>
-                        <li>Design for Additive Manufacturing</li>
+                        <li>Design for Additive Manufacturing and Design for Assembly</li>
                         <li>CAD Modeling for 3D printing and URDF generation</li>
                     </ul>
                 </div>
@@ -1165,6 +1165,7 @@ redirect_from:
                     <ul class="skill-list">
                         <li>Motor Selection and integration</li>
                         <li>Field-Oriented Control implementation</li>
+                        <li>Wiring and Power Calculations</li>
                         <li>Sensor Integration (Kinect, Hall effect, encoders)</li>
                         <li>Current sensing for grasp detection</li>
                     </ul>

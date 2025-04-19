@@ -640,7 +640,7 @@ p {
 <div class="section">
   <h2 class="section-title">Get In Touch</h2>
   <div class="section-content">
-    <p>Please feel free to contact me, I'm always open to discussing robotics research, potential collaborations, or new opportunities. Feel free to reach out through any of the following channels:</p>
+    <p>I'm always open to discussing robotics research, potential collaborations, or new opportunities. Feel free to reach out through any of the following channels:</p>
     
     <div class="contact-buttons">
       <a href="mailto:masoud.rahimi38@gmail.com" class="contact-btn">
