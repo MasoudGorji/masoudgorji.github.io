@@ -947,7 +947,7 @@ redirect_from:
     <!-- Header Section -->
     <div class="header">
         <div class="header-content">
-            <h1>Interactive Robotic Arm for Safe Human-Robot Handover</h1>
+            <h1>Interactive Robotic Arm for Safe Human-Robot Handovers</h1>
             <p>My master's thesis project demonstrating the design, fabrication, and implementation of a low-cost 5-DOF robotic arm with advanced perception and safety features</p>
 
             <div class="badges-container">
@@ -969,10 +969,10 @@ redirect_from:
             <p>I successfully designed, built, and tested a complete low-cost 5-DOF robotic arm system specifically designed for safe human-robot object handover interactions. This project addressed the challenge of creating affordable yet capable robotic assistants for collaborative environments.</p>
 
             <div class="highlight-box">
-                <p><strong>Key Innovation:</strong> Combining custom 3D-printed hardware with advanced perception systems to create a safe, interactive robotic platform at a fraction of the cost of commercial solutions.</p>
+                <p><strong>Key Achievement:</strong> Combining custom 3D-printed hardware with advanced perception systems to create a safe, interactive robotic platform at a fraction of the cost of commercial solutions.</p>
             </div>
 
-            <p>The final system leverages custom cycloidal gearboxes, a hybrid motor approach, and deep learning-based perception to enable safe and reliable object handover from a human user, demonstrating that affordable robotics can achieve meaningful human-robot interaction.</p>
+            <p>The final system uses real-time grasp detection and hand segmentation to enable safe and contact-free object handovers from humans to the robot, demonstrating that affordable robotics can achieve meaningful human-robot interaction.</p>
 
             <a href="#final-demo" class="btn">See Final Demonstration <i class="fas fa-arrow-right"></i></a>
         </div>
@@ -1247,7 +1247,7 @@ redirect_from:
 
     <!-- Contributions Section -->
     <div class="contributions-section">
-        <h2 class="section-title">Key Contributions</h2>
+        <h2 class="section-title">Key Achievements</h2>
         <ul class="contributions-list">
             <li>
                 <strong>Low-Cost Interactive Robotic Arm System:</strong> Designed, built, and demonstrated a complete 5-DOF robotic arm capable of human-robot object handover at a significantly lower cost than commercial alternatives.
@@ -1262,7 +1262,7 @@ redirect_from:
                 <strong>Demonstration of Feasibility:</strong> Provided proof that affordable hardware combined with advanced software can yield a functional and safe interactive robot for collaborative tasks.
             </li>
             <li>
-                <strong>Proxy Force Sensing Implementation:</strong> Showcased motor current sensing as a cost-effective alternative to direct tactile sensing for object contact detection.
+                <strong>Force Sensing Implementation:</strong> Showcased motor current sensing as a cost-effective alternative to direct tactile sensing for object contact detection.
             </li>
         </ul>
     </div>
